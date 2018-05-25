@@ -35,11 +35,12 @@ def get_closest_bar(filepath, longitude, latitude):
     data, bars_seat, bars_coordinate = load_data(filepath)
     i = []
     for c in bars_coordinate:
-        i.append((abs(c[0]-longitude))**2 + (abs(c[1]-latitude))**2)
+        i.append((abs(c[0]-longitude)) + (abs(c[1]-latitude)))
     #for с in bars_coordinate:
         #if (abs(c[0]-longitude)) + (abs(c[1]-latitude)) == min(i):
         #    с
-    c = bars_coordinate[i.index(min(i))]
+
+    c = data.get('features')[i.index(min(i))]
     return c
 
 if __name__ == '__main__':
@@ -50,10 +51,4 @@ if __name__ == '__main__':
     print(get_smallest_bar(filepath))
     print(get_closest_bar(filepath, longitude, latitude))
 
-0.0021515575396264808
-0.0021515575396264808
 
-[37.750290923482424, 55.61870614052117]
-[37.59334095115056, 55.750248752327124]
-37.593340951150559, 55.750248752327124
-ДУЛИН ПАБ
