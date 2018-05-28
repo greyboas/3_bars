@@ -49,9 +49,9 @@ def validation_longitude_latitude(dirty_longitude, dirty_latitude):
         longitude = float(dirty_longitude)
         latitude = float(dirty_latitude)
     except IndexError:
-        sys.exit('Not set argyment coordinate')
+        print('Not set argyment coordinate')
     except ValueError:
-        sys.exit('The argument format is not valid (For example, '
+        print('The argument format is not valid (For example, '
                  'longitude 37.594104911195 or latitude 55.748861154831935)')
     return longitude, latitude
 
