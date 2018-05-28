@@ -44,6 +44,18 @@ def get_smallest_bar(loaded_json, bars_seat):
     return smallest_bar_name, min(bars_seat)
 
 
+def validation_longitude_latitude(dirty_longitude, dirty_latitude):
+    try:
+        longitude = float(dirty_longitude)
+        latitude = float(dirty_latitude)
+    except IndexError:
+        sys.exit('Not set argyment coordinate')
+    except ValueError:
+        sys.exit('The argument format is not valid (For example, '
+                 'longitude 37.594104911195 or latitude 55.748861154831935)')
+    return longitude, latitude
+
+
 def get_closest_bar(loaded_json, bars_coordinate):
     delta_distance = []
     for coordinate in bars_coordinate:
@@ -61,6 +73,8 @@ def get_closest_bar(loaded_json, bars_coordinate):
 
 
 if __name__ == '__main__':
+    dirty_longitude = sys.argv[2]
+    dirty_latitude = sys.argv[3]
     try:
         filepath = sys.argv[1]
         loaded_json, bars_seat, bars_coordinate = load_data(filepath)
@@ -68,16 +82,9 @@ if __name__ == '__main__':
         sys.exit('Not set argyment filepath')
     except FileNotFoundError:
         sys.exit('File not found')
-    dirty_longitude = sys.argv[2]
-    dirty_latitude = sys.argv[3]
-    try:
-        longitude = float(dirty_longitude)
-        latitude = float(dirty_latitude)
-    except IndexError:
-        sys.exit('Not set argyment coordinate')
-    except ValueError:
-        sys.exit('The argument format is not valid (For example, '
-                 'longitude 37.594104911195 or latitude 55.748861154831935)')
+    longitude, latitude = validation_longitude_latitude(
+        dirty_longitude,
+        dirty_latitude)
     print(get_biggest_bar(loaded_json, bars_seat))
     print(get_smallest_bar(loaded_json, bars_seat))
     print(get_closest_bar(loaded_json, bars_coordinate))
