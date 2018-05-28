@@ -68,9 +68,11 @@ if __name__ == '__main__':
         sys.exit('Not set argyment filepath')
     except FileNotFoundError:
         sys.exit('File not found')
+    dirty_longitude = sys.argv[2]
+    dirty_latitude = sys.argv[3]
     try:
-        longitude = float(sys.argv[2])
-        latitude = float(sys.argv[3])
+        longitude = float(dirty_longitude)
+        latitude = float(dirty_latitude)
     except IndexError:
         sys.exit('Not set argyment coordinate')
     except ValueError:
