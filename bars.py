@@ -78,7 +78,7 @@ if __name__ == '__main__':
                  'longitude 37.594104911195 or latitude 55.748861154831935)')
     print(get_biggest_bar(loaded_json, bars_seat))
     print(get_smallest_bar(loaded_json, bars_seat))
-    print(loaded_json, bars_coordinate))
+    print(get_closest_bar(loaded_json, bars_coordinate))
 
 
 
