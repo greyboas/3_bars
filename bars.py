@@ -59,23 +59,26 @@ def get_closest_bar(loaded_json, bars_coordinate):
 
 if __name__ == '__main__':
     try:
-        filepath = 'bar.json'
+        filepath = sys.argv[1]
         loaded_json, bars_seat, bars_coordinate = load_data(filepath)
     except IndexError:
         sys.exit('Not set argyment filepath')
     except FileNotFoundError:
         sys.exit('File not found')
     try:
-        longitude = float(sys.argv[1])
-        latitude = float(sys.argv[2])
+        longitude = float(sys.argv[2])
+        latitude = float(sys.argv[3])
     except IndexError:
         sys.exit('Not set argyment coordinate')
     except ValueError:
         sys.exit('The argument format is not valid (For example, '
                  'longitude 37.594104911195 or latitude 55.748861154831935)')
-    print(get_biggest_bar(loaded_json, bars_seat))
-    print(get_smallest_bar(loaded_json, bars_seat))
-    print(get_closest_bar(loaded_json, bars_coordinate))
+    print('Самый большой бар с посадочныими местами'
+          + str(get_biggest_bar(loaded_json, bars_seat)))
+    print('Самый маленикий бар с посадочныими местами'
+          + str(get_smallest_bar(loaded_json, bars_seat)))
+    print('Ближайший бар от тебя c координатами :'
+          + str(get_closest_bar(loaded_json, bars_coordinate)))
 
 
 
