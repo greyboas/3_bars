@@ -35,11 +35,7 @@ def get_closest_bar(filepath, longitude, latitude):
     data, bars_seat, bars_coordinate = load_data(filepath)
     i = []
     for c in bars_coordinate:
-        i.append((abs(c[0]-longitude)) + (abs(c[1]-latitude)))
-    #for с in bars_coordinate:
-        #if (abs(c[0]-longitude)) + (abs(c[1]-latitude)) == min(i):
-        #    с
-
+        i.append((abs(c[0]-longitude))   + (abs(c[1]-latitude))**2)
     c = data.get('features')[i.index(min(i))]
     return c
 
