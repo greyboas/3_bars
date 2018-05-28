@@ -88,6 +88,3 @@ if __name__ == '__main__':
     print(get_biggest_bar(loaded_json, bars_seat))
     print(get_smallest_bar(loaded_json, bars_seat))
     print(get_closest_bar(loaded_json, bars_coordinate))
-
-
-
