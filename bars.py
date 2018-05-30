@@ -13,14 +13,14 @@ def get_biggest_bar(loaded_bars):
     return max(
         loaded_bars,
         key=lambda bar:bar['properties']['Attributes']['SeatsCount']
-        )
+    )
 
 
 def get_smallest_bar(loaded_bars):
     return min(
         loaded_bars,
         key=lambda bar:bar['properties']['Attributes']['SeatsCount']
-        )
+    )
 
 
 def get_closest_bar(loaded_bars, longtitude, latitude):
